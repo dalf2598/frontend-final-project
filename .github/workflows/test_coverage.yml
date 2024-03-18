@@ -10,26 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+    
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3  
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - name: Use Node.js 18  
+        uses: actions/setup-node@v3
         with:
-          python-version: 3.8
-      
+          node-version: 18
+
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: Build coverage file
-        run: |
-          pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov-config=.coveragerc --cov=app app/test/ | tee pytest-coverage.txt
+        run: npm install  
 
-      - name: Pytest coverage comment
-        uses: MishaKav/pytest-coverage-comment@v1.1.48
-        with:
-          pytest-coverage-path: ./pytest-coverage.txt
-          junitxml-path: ./pytest.xml
+      - name: Run tests
+        run: npm test
       
