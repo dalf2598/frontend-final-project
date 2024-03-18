@@ -40,7 +40,7 @@ describe("<Button />", () => {
     };
 
     setup(props);
-    const button = screen.getByText("Test");
+    const button = screen.getByText("Testing");
     fireEvent.click(button);
     expect(mockOnClick).toHaveBeenCalled();
   });
