@@ -5,6 +5,7 @@ function App() {
     <>
       <ThemeProvider>
         <p> Hello world !</p>
+        <p> Minor change</p>
       </ThemeProvider>
     </>
   );
