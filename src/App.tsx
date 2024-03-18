@@ -1,10 +1,13 @@
+import Scaffold from "./components/templates/Scaffold/Scaffold";
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext";
 
 function App() {
   return (
     <>
       <ThemeProvider>
-        <p> Hello world !</p>
+        <Scaffold>
+          <p>Hello World ! </p>
+        </Scaffold>
       </ThemeProvider>
     </>
   );
