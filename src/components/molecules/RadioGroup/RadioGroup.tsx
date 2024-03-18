@@ -14,8 +14,8 @@ const RadioGroup = ({
       onChange={(e) => handleChange(e.target.value)}
       row
     >
-      {options.map((option) => (
-        <Radio value={option.value} label={option.label} />
+      {options.map((option, index) => (
+        <Radio key={index} value={option.value} label={option.label} />
       ))}
     </MuiRadioGroup>
   );
