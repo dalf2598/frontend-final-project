@@ -37,7 +37,7 @@ describe("<RadioGroup />", () => {
     expect(radio2).toBeInTheDocument();
   });
 
-  test("should render options ", () => {
+  test("should call handleChange", () => {
     const mockChange = jest.fn();
 
     const props: RadioGroupProps = {
