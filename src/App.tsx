@@ -1,7 +1,11 @@
+import ThemeProvider from "./contexts/ThemeContext/ThemeContext";
+
 function App() {
   return (
     <>
-      <p>Hello world !</p>
+      <ThemeProvider>
+        <p> Hello world !</p>
+      </ThemeProvider>
     </>
   );
 }
