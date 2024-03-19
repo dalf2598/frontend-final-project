@@ -22,3 +22,9 @@ export const DIFFICULTIES = [
     { value: "medium", label: "Medium" },
     { value: "hard", label: "Hard" },
 ];
+
+export const LOADING_DIALOG_TITLE = 'Loading...';
+
+export const RESULTS_DIALOG_TITLE = 'Results';
+
+export const RESULTS_LEVEL = 'Awarded Level';

@@ -8,10 +8,11 @@ import {
 import RadioGroup from "../../molecules/RadioGroup/RadioGroup";
 import TextField from "../../molecules/TextField/TextField";
 import Button from "../../atoms/Button/Button";
+import LoadingDialog from "../LoadingDialog/LoadingDialog";
 
 const PlayerForm = () => {
   const [difficulty, setDifficulty] = useState<string>(DIFFICULTIES[1].value);
-  const [playerName, setPlayerName] = useState("");
+  const [playerName, setPlayerName] = useState<string>("");
 
   const handleChangeDifficulty = (newDifficulty: string) => {
     setDifficulty(newDifficulty);
@@ -42,6 +43,8 @@ const PlayerForm = () => {
         onClick={handlePlayButtonClick}
         text="Play"
       />
+
+      <LoadingDialog isOpen={false} />
     </>
   );
 };
