@@ -11,7 +11,7 @@ describe("<Gameplay />", () => {
     setup();
 
     const titleLabel = screen.getByText("Question");
-    screen.debug();
+
     expect(titleLabel).toBeInTheDocument();
   });
 });
