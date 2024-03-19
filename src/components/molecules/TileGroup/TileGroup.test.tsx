@@ -5,8 +5,8 @@ import { TileGroupProps } from "./TileGroup.types";
 
 describe("<TileGroup />", () => {
   const mockOptions = [
-    { type: "test1", label: "Test1" },
-    { type: "test2", label: "Test2" },
+    { type: "test1", label: "Test1", color: "blue" },
+    { type: "test2", label: "Test2", color: "red" },
   ];
 
   const setup = ({ options, onClick }: TileGroupProps) => {

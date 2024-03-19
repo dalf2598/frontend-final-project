@@ -1,5 +1,5 @@
 type TextFieldProps = {
-  label: string;
+  label?: string;
   value: string;
   setValue: (newValue: string) => void;
 };

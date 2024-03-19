@@ -19,7 +19,12 @@ const TileGroup = ({ options, onClick }: TileGroupProps) => {
     <StyledTyleGroupBox>
       {options.map((option, index) => (
         <Box key={index} sx={TyleBoxStyle}>
-          <Tile index={index + 1} text={option.label} onClick={onClick} />
+          <Tile
+            index={index + 1}
+            text={option.label}
+            onClick={onClick}
+            color={option.color}
+          />
         </Box>
       ))}
     </StyledTyleGroupBox>
