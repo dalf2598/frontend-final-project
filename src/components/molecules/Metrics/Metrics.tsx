@@ -5,7 +5,7 @@ import { styled } from "@mui/system";
 const StyledBox = styled(Box)({
   display: "flex",
   alignItems: "center",
-  my: "10px",
+  margin: "15px 0",
 });
 
 const StyledChildBoxLeft = styled(Box)({

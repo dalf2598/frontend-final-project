@@ -14,11 +14,13 @@ describe("<StartMenu />", () => {
 
   test("should render child components", () => {
     setup();
+
     const titleLabel = screen.getByText(GAME_TITLE);
-    expect(titleLabel).toBeInTheDocument();
     const descriptionLabel = screen.getByText(GAME_DESCRIPTION);
-    expect(descriptionLabel).toBeInTheDocument();
     const categoriesLabel = screen.getByText(CATEGORIES_TITLE);
+
+    expect(titleLabel).toBeInTheDocument();
+    expect(descriptionLabel).toBeInTheDocument();
     expect(categoriesLabel).toBeInTheDocument();
   });
 });
