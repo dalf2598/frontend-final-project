@@ -1,5 +1,5 @@
 type TileGroupProps = {
-    options: { type: string; label: string }[];
+    options: { type: string; label: string; color: string }[];
     onClick: (option: number) => void;
 };
 
