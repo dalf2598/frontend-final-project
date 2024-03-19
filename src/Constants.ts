@@ -28,3 +28,10 @@ export const LOADING_DIALOG_TITLE = 'Loading...';
 export const RESULTS_DIALOG_TITLE = 'Results';
 
 export const RESULTS_LEVEL = 'Awarded Level';
+
+export const MOCK_GAME_OPTIONS = [
+    { type: "option1", label: "Option 1" },
+    { type: "option2", label: "Option 2" },
+    { type: "option3", label: "Option 3" },
+    { type: "option4", label: "Option 4" },
+];
