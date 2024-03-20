@@ -13,7 +13,7 @@ export const CATEGORIES = [
 
 export const PLAYER_LABEL = 'Enter your name';
 
-export const MAX_CHARACTERS_ALLOWED = 15;
+export const MAX_CHARACTERS_ALLOWED = 20;
 
 export const DIFFICULTY_LABEL = 'Pick a difficulty';
 
@@ -35,3 +35,7 @@ export const MOCK_GAME_OPTIONS = [
     { type: "option3", label: "Option 3" },
     { type: "option4", label: "Option 4" },
 ];
+
+export const LEADERBOARD_TITLE = 'Leaderboard';
+
+export const LEADERBOARD_HEADERS = ['RANK', 'PLAYER', 'LEVEL', 'SCORE'];

@@ -5,17 +5,15 @@ import {
   DialogTitle,
   useTheme,
 } from "@mui/material";
-
 import { styled, Theme } from "@mui/system";
-
-import { TableRows, Home } from "@mui/icons-material";
+import { Home, Leaderboard } from "@mui/icons-material";
 import { DialogProps } from "./Dialog.types";
 import Button from "../../atoms/Button/Button";
 
 const StyledDialog = styled(MuiDialog)<{ theme: Theme }>((props) => ({
   "& .MuiDialog-paper": {
-    border: `1px solid ${props.theme.palette.text.primary}`, // Add a white border to the dialog paper
-    borderRadius: "8px", // Apply border radius to the dialog paper
+    border: `1px solid ${props.theme.palette.text.primary}`,
+    borderRadius: "8px",
   },
 
   "& .MuiDialogTitle-root": {
@@ -48,7 +46,7 @@ const Dialog = ({ title, body, open, showOptions }: DialogProps) => {
       {showOptions && (
         <DialogActions>
           <Button icon={<Home />} onClick={() => {}} text="Home" />
-          <Button icon={<TableRows />} onClick={() => {}} text="Ranking" />
+          <Button icon={<Leaderboard />} onClick={() => {}} text="Ranking" />
         </DialogActions>
       )}
     </StyledDialog>
