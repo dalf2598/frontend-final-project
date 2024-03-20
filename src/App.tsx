@@ -1,10 +1,11 @@
+import Background from "./components/organisms/Background/Background";
 import StartMenu from "./components/pages/StartMenu/StartMenu";
-// import Scaffold from "./components/templates/Scaffold/Scaffold";
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext";
 
 function App() {
   return (
     <ThemeProvider>
+      <Background />
       <StartMenu />
     </ThemeProvider>
   );
