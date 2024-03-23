@@ -1,4 +1,13 @@
-import { CATEGORIES, DIFFICULTIES } from "../Constants";
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import ExploreIcon from "@mui/icons-material/Explore";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import ScienceIcon from "@mui/icons-material/Science";
+import {
+  CATEGORIES,
+  CORRECT_ANSWER_TITLES,
+  DIFFICULTIES,
+  INCORRECT_ANSWER_TITLES,
+} from "../Constants";
 import {
   FormattedQuestionsType,
   QuestionBankType,
@@ -36,6 +45,21 @@ export const getQuestionTimer = (difficulty: string) => {
       return 8;
     default:
       return 10;
+  }
+};
+
+export const getQuestionIcon = (category: string) => {
+  switch (category) {
+    case availableCategories[0]: // history
+      return <AutoStoriesIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[1]: // geography
+      return <ExploreIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[2]: // music
+      return <MusicNoteIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[3]: // science
+      return <ScienceIcon sx={{ fontSize: "4rem" }} />;
+    default:
+      return <AutoStoriesIcon sx={{ fontSize: "4rem" }} />;
   }
 };
 
@@ -78,4 +102,22 @@ export const getRandomQuestions = (
   });
 
   return selectedQuestions;
+};
+
+export const parseToTileGroupFormat = (question: FormattedQuestionsType) => {
+  return question.options.map((option) => {
+    return {
+      type: question.category,
+      label: option,
+    };
+  });
+};
+
+export const getAnswerDialogTitle = (isCorrect: boolean) => {
+  const correctTitles = CORRECT_ANSWER_TITLES;
+  const incorrectTitles = INCORRECT_ANSWER_TITLES;
+
+  return isCorrect
+    ? correctTitles[Math.floor(Math.random() * correctTitles.length)]
+    : incorrectTitles[Math.floor(Math.random() * incorrectTitles.length)];
 };

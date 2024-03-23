@@ -20,7 +20,7 @@ const TileGroup = ({ options, onClick }: TileGroupProps) => {
       {options.map((option, index) => (
         <Box key={index} sx={TyleBoxStyle}>
           <Tile
-            index={index + 1}
+            index={index}
             text={option.label}
             onClick={onClick}
             color={option.color}

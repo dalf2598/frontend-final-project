@@ -37,4 +37,4 @@ const GameProvider = ({ children }: GameProviderProps) => {
 };
 
 // eslint-disable-next-line react-refresh/only-export-components
-export { useGame, GameProvider };
+export { GameContext, useGame, GameProvider };

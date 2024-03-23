@@ -1,36 +1,57 @@
+import { useState } from "react";
 import { Typography, LinearProgress } from "@mui/material";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import { MOCK_GAME_OPTIONS } from "../../../Constants";
-import { useGame } from "../../../contexts/GameContext/GameContext";
+import { getQuestionIcon, parseToTileGroupFormat } from "../../../utils/Utils";
 import Scaffold from "../../templates/Scaffold/Scaffold";
 import Question from "../../molecules/Question/Question";
 import Metrics from "../../molecules/Metrics/Metrics";
 import TileGroup from "../../molecules/TileGroup/TileGroup";
+import AnswerDialog from "../../organisms/AnswerDialog/AnswerDialog";
+import ResultDialog from "../../organisms/ResultsDialog/ResultsDialog";
+import useGamePlay from "../../../hooks/useGameplay";
 
 const Gameplay = () => {
-  const { playerName, questions, questionTimer: questionTime } = useGame();
-  console.log("playerName: ", playerName);
-  console.log("questions: ", questions);
-  console.log("questionTime: ", questionTime);
+  const {
+    index,
+    currentQuestion,
+    handleTransition,
+    progress,
+    timer,
+    isGameOver,
+    isOptionSelected,
+  } = useGamePlay();
+
+  const [isOptionCorrect, setIsOptionCorrect] = useState(false);
+
+  const handleTileClick = (option: number) => {
+    setIsOptionCorrect(
+      currentQuestion.options[option] === currentQuestion.answer
+    );
+    handleTransition();
+  };
 
   return (
     <Scaffold>
-      <LinearProgress variant="determinate" value={50} />
+      <LinearProgress variant="determinate" value={progress} />
       <Typography variant="h2" fontWeight="bold">
-        Question
+        Question {index + 1}
       </Typography>
       <Question
-        category={"History"}
-        question={
-          "This is a very interesting question that will expand a little bit, maybe it can expand even more ?"
-        }
-        icon={<AutoStoriesIcon sx={{ fontSize: "4rem" }} />}
+        category={currentQuestion.category}
+        question={currentQuestion.query}
+        icon={getQuestionIcon(currentQuestion.category)}
       />
-      <Metrics score={20} time={50} />
+      <Metrics score={20} time={timer} />
       <TileGroup
-        options={MOCK_GAME_OPTIONS}
-        onClick={(option: number) => console.log(option)}
+        options={parseToTileGroupFormat(currentQuestion)}
+        onClick={handleTileClick}
       />
+      <AnswerDialog
+        isOpen={isOptionSelected}
+        score={20}
+        isCorrect={isOptionCorrect}
+        answer={currentQuestion.answer}
+      />
+      <ResultDialog isOpen={isGameOver} score={200} time={84} level="Master" />
     </Scaffold>
   );
 };
