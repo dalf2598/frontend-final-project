@@ -26,7 +26,7 @@ export const getQuestionNumber = (difficulty: string) => {
   }
 };
 
-export const getQuestionTime = (difficulty: string) => {
+export const getQuestionTimer = (difficulty: string) => {
   switch (difficulty) {
     case availableDifficulties[0]: // easy
       return 12;

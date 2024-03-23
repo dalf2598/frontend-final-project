@@ -6,7 +6,7 @@ import {
 } from "./Mocks";
 import {
   getQuestionNumber,
-  getQuestionTime,
+  getQuestionTimer,
   getRandomQuestions,
 } from "./Utils";
 
@@ -21,7 +21,7 @@ describe("<Utils />", () => {
   test.each(mockQuestionTimeOptions)(
     "should return the correct question time for each difficulty",
     ({ difficulty, time }) => {
-      expect(getQuestionTime(difficulty)).toBe(time);
+      expect(getQuestionTimer(difficulty)).toBe(time);
     }
   );
 

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-type ThemeContextProps = {
+type ThemeProviderProps = {
     children: ReactNode;
 };
 
-export type { ThemeContextProps };
+export type { ThemeProviderProps };

@@ -3,9 +3,9 @@ import {
   createTheme,
 } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeContextProps } from "./ThemeContext.types";
+import { ThemeProviderProps } from "./ThemeContext.types";
 
-const ThemeProvider = ({ children }: ThemeContextProps) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const theme = createTheme({
     palette: {
       mode: "dark",
