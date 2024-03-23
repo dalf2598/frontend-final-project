@@ -1,4 +1,4 @@
-import { QuestionBankType } from "./Utils.types";
+import { FormattedQuestionsType, QuestionBankType } from "./Utils.types";
 
 export const mockQuestionBank: QuestionBankType = {
     history: {
@@ -306,3 +306,11 @@ export const mockQuestionTimeOptions = [
 ];
 
 export const mockDifficulties = ["easy", "medium", "hard"];
+
+export const mockFormattedQuestion: FormattedQuestionsType = {
+    category: 'test category',
+    difficulty: 'test difficulty',
+    query: 'test query',
+    options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    answer: 'Option 1',
+};

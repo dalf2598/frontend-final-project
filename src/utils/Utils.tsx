@@ -1,4 +1,9 @@
-import { CATEGORIES, DIFFICULTIES } from "../Constants";
+import {
+  CATEGORIES,
+  CORRECT_ANSWER_TITLES,
+  DIFFICULTIES,
+  INCORRECT_ANSWER_TITLES,
+} from "../Constants";
 import {
   FormattedQuestionsType,
   QuestionBankType,
@@ -78,4 +83,22 @@ export const getRandomQuestions = (
   });
 
   return selectedQuestions;
+};
+
+export const parseToTileOptionFormat = (question: FormattedQuestionsType) => {
+  return question.options.map((option) => {
+    return {
+      type: question.category,
+      label: option,
+    };
+  });
+};
+
+export const getAnswerDialogTitle = (isCorrect: boolean) => {
+  const correctTitles = CORRECT_ANSWER_TITLES;
+  const incorrectTitles = INCORRECT_ANSWER_TITLES;
+
+  return isCorrect
+    ? correctTitles[Math.floor(Math.random() * correctTitles.length)]
+    : incorrectTitles[Math.floor(Math.random() * incorrectTitles.length)];
 };

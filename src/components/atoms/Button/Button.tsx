@@ -1,6 +1,6 @@
 import { Button as MuiButton } from "@mui/material";
-import { ButtonProps } from "./Button.types";
 import { styled } from "@mui/system";
+import { ButtonProps } from "./Button.types";
 
 const StyledButton = styled(MuiButton)({
   borderRadius: "8px",
