@@ -314,6 +314,27 @@ export const mockQuestionIconOptions = [
     { category: "science", expectedIcon: "ScienceIcon" },
 ];
 
+export const mockGetPlayerLevelOptions = [
+    { score: 150, level: "Novice" },
+    { score: 250, level: "Apprentice" },
+    { score: 350, level: "Expert" },
+    { score: 450, level: "Sage" },
+];
+
+export const mockGetDifficultyFactorOptions = [
+    { difficulty: "easy", factor: 0.5 },
+    { difficulty: "medium", factor: 0.75 },
+    { difficulty: "hard", factor: 1 },
+    { difficulty: "unknown", factor: 0.75 },
+];
+
+export const mockGetQuestionScoreOptions = [
+    { correctness: true, time: 50, difficulty: "easy", score: 25 },
+    { correctness: true, time: 50, difficulty: "medium", score: 38 },
+    { correctness: true, time: 50, difficulty: "hard", score: 50 },
+    { correctness: false, time: 50, difficulty: "hard", score: 0 },
+];
+
 export const mockFormattedQuestion: FormattedQuestionsType = {
     category: 'test category',
     difficulty: 'test difficulty',

@@ -1,7 +1,7 @@
 type ResultsDialogProps = {
     isOpen: boolean;
     score: number;
-    time: number;
+    time: string;
     level: string;
 };
 

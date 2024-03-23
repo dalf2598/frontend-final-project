@@ -15,7 +15,7 @@ describe("<ResultsDialog />", () => {
     const props: ResultsDialogProps = {
       isOpen: true,
       score: 100,
-      time: 10,
+      time: "10",
       level: "Test Level",
     };
 

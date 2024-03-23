@@ -104,6 +104,42 @@ export const getRandomQuestions = (
   return selectedQuestions;
 };
 
+export const getPlayerLevel = (score: number) => {
+  switch (true) {
+    case score <= 200:
+      return "Novice";
+    case score <= 300:
+      return "Apprentice";
+    case score <= 400:
+      return "Expert";
+    default:
+      return "Sage";
+  }
+};
+
+export const getDifficultyFactor = (difficulty: string) => {
+  switch (difficulty) {
+    case availableDifficulties[0]: // easy
+      return 0.5;
+    case availableDifficulties[1]: // medium
+      return 0.75;
+    case availableDifficulties[2]: // hard
+      return 1;
+    default:
+      return 0.75;
+  }
+};
+
+export const getQuestionScore = (
+  isOptionCorrect: boolean,
+  time: number,
+  difficulty: string
+) => {
+  const correcteness = isOptionCorrect ? 1 : 0;
+  const difficultyFactor = getDifficultyFactor(difficulty);
+  return Math.ceil(correcteness * time * difficultyFactor);
+};
+
 export const parseToTileGroupFormat = (question: FormattedQuestionsType) => {
   return question.options.map((option) => {
     return {
