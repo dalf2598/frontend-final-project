@@ -1,6 +1,8 @@
-export const QuestionBank = {
-    "History": {
-        "Easy": [
+import { QuestionBankType } from "../utils/Utils.types";
+
+export const QuestionBank: QuestionBankType = {
+    "history": {
+        "easy": [
             {
                 "query": "Who served as the first President of the United States of America?",
                 "options": ["Washington", "Adams", "Jefferson", "Lincoln"],
@@ -32,7 +34,7 @@ export const QuestionBank = {
                 "answer": "1989"
             }
         ],
-        "Medium": [
+        "medium": [
             {
                 "query": "Who was the founder of the Maurya Empire in ancient India?",
                 "options": [
@@ -79,7 +81,7 @@ export const QuestionBank = {
                 "answer": "Indira Gandhi"
             }
         ],
-        "Hard": [
+        "hard": [
             {
                 "query": "Who became the first female ruler of China, establishing her own dynasty after the decline of the Tang Dynasty?",
                 "options": [
@@ -138,8 +140,8 @@ export const QuestionBank = {
         ]
     },
 
-    "Music": {
-        "Easy": [
+    "music": {
+        "easy": [
             {
                 "query": "Who was known as the 'King of Pop'?",
                 "options": [
@@ -186,7 +188,7 @@ export const QuestionBank = {
                 "answer": "Bob Dylan"
             }
         ],
-        "Medium": [
+        "medium": [
             {
                 "query": "Who composed the famous piece 'Für Elise'?",
                 "options": [
@@ -243,7 +245,7 @@ export const QuestionBank = {
                 "answer": "Pink Floyd"
             }
         ],
-        "Hard": [
+        "hard": [
             {
                 "query": "Who composed the opera 'The Magic Flute'?",
                 "options": [
@@ -296,8 +298,8 @@ export const QuestionBank = {
             }
         ]
     },
-    "Science": {
-        "Easy": [
+    "science": {
+        "easy": [
             {
                 "query": "What is the chemical symbol for water?",
                 "options": ["H2O", "CO2", "O2", "NaCl"],
@@ -329,7 +331,7 @@ export const QuestionBank = {
                 "answer": "Mars"
             }
         ],
-        "Medium": [
+        "medium": [
             {
                 "query": "What is the process by which plants make their own food called?",
                 "options": [
@@ -371,7 +373,7 @@ export const QuestionBank = {
                 "answer": "Mercury"
             }
         ],
-        "Hard": [
+        "hard": [
             {
                 "query": "What is the chemical formula for the compound commonly known as 'table salt'?",
                 "options": ["NaCl", "H2O", "CO2", "C6H12O6"],
@@ -405,8 +407,8 @@ export const QuestionBank = {
             }
         ]
     },
-    "Geography": {
-        "Easy": [
+    "geography": {
+        "easy": [
             {
                 "query": "What is the capital city of France?",
                 "options": ["Paris", "Rome", "Berlin", "Madrid"],
@@ -438,7 +440,7 @@ export const QuestionBank = {
                 "answer": "Asia"
             }
         ],
-        "Medium": [
+        "medium": [
             {
                 "query": "Which city is known as the 'City of Love'?",
                 "options": ["Paris", "Rome", "Venice", "Florence"],
@@ -470,7 +472,7 @@ export const QuestionBank = {
                 "answer": "Canberra"
             }
         ],
-        "Hard": [
+        "hard": [
             {
                 "query": "Which country is the smallest by land area?",
                 "options": ["Vatican City", "Monaco", "Nauru", "Tuvalu"],
