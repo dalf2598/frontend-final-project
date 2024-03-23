@@ -7,6 +7,11 @@ import {
   GAME_TITLE,
 } from "../../../Constants";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<StartMenu />", () => {
   const setup = () => {
     return render(<StartMenu />);

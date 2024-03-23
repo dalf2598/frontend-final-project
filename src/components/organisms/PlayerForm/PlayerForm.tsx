@@ -10,23 +10,44 @@ import TextField from "../../molecules/TextField/TextField";
 import Button from "../../atoms/Button/Button";
 import LoadingDialog from "../LoadingDialog/LoadingDialog";
 import { QuestionBank } from "../../../backups/QuestionBank";
-import { getRandomQuestions } from "../../../utils/Utils";
+import {
+  getQuestionNumber,
+  getQuestionTimer,
+  getRandomQuestions,
+} from "../../../utils/Utils";
+import { useNavigate } from "react-router-dom";
+import { useGame } from "../../../contexts/GameContext/GameContext";
 
 const PlayerForm = () => {
+  const {
+    setPlayerName: setContextName,
+    setQuestions,
+    setQuestionTimer,
+  } = useGame();
+
+  const navigate = useNavigate();
+
   const [difficulty, setDifficulty] = useState<string>(DIFFICULTIES[1].value);
   const [playerName, setPlayerName] = useState<string>("");
+  const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
 
   const handleChangeDifficulty = (newDifficulty: string) => {
     setDifficulty(newDifficulty);
   };
 
   const handlePlayButtonClick = () => {
-    console.log("difficulty", difficulty);
-    console.log("playerName", playerName);
-    console.log(
-      "availableQuestions",
-      getRandomQuestions(QuestionBank, 6, difficulty)
+    const questions = getRandomQuestions(
+      QuestionBank,
+      getQuestionNumber(difficulty),
+      difficulty
     );
+    setContextName(playerName.length === 0 ? "Blank" : playerName);
+    setQuestions(questions);
+    setQuestionTimer(getQuestionTimer(difficulty));
+    setIsDialogOpen(true);
+    setTimeout(() => {
+      navigate("/gameplay");
+    }, 1500);
   };
 
   return (
@@ -50,7 +71,7 @@ const PlayerForm = () => {
         text="Play"
       />
 
-      <LoadingDialog isOpen={false} />
+      <LoadingDialog isOpen={isDialogOpen} />
     </>
   );
 };

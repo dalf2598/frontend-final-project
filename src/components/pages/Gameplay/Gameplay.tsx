@@ -1,12 +1,18 @@
 import { Typography, LinearProgress } from "@mui/material";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { MOCK_GAME_OPTIONS } from "../../../Constants";
+import { useGame } from "../../../contexts/GameContext/GameContext";
 import Scaffold from "../../templates/Scaffold/Scaffold";
 import Question from "../../molecules/Question/Question";
 import Metrics from "../../molecules/Metrics/Metrics";
 import TileGroup from "../../molecules/TileGroup/TileGroup";
 
 const Gameplay = () => {
+  const { playerName, questions, questionTimer: questionTime } = useGame();
+  console.log("playerName: ", playerName);
+  console.log("questions: ", questions);
+  console.log("questionTime: ", questionTime);
+
   return (
     <Scaffold>
       <LinearProgress variant="determinate" value={50} />
