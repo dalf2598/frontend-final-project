@@ -10,6 +10,7 @@ import TextField from "../../molecules/TextField/TextField";
 import Button from "../../atoms/Button/Button";
 import LoadingDialog from "../LoadingDialog/LoadingDialog";
 import { QuestionBank } from "../../../backups/QuestionBank";
+import { getRandomQuestions } from "../../../utils/Utils";
 
 const PlayerForm = () => {
   const [difficulty, setDifficulty] = useState<string>(DIFFICULTIES[1].value);
@@ -22,7 +23,10 @@ const PlayerForm = () => {
   const handlePlayButtonClick = () => {
     console.log("difficulty", difficulty);
     console.log("playerName", playerName);
-    console.log("availableQuestions", QuestionBank);
+    console.log(
+      "availableQuestions",
+      getRandomQuestions(QuestionBank, 6, difficulty)
+    );
   };
 
   return (

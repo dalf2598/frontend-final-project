@@ -6,7 +6,7 @@ export const CATEGORIES_TITLE = 'Categories';
 
 export const CATEGORIES = [
     { type: "history", label: "History", color: "#116D6E" },
-    { type: "geography", label: "Geography ", color: "#00337C" },
+    { type: "geography", label: "Geography", color: "#00337C" },
     { type: "music", label: "Music", color: "#750E21" },
     { type: "science", label: "Science", color: "#E36414" },
 ];
