@@ -1,17 +1,21 @@
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 import { CORRECT_ANSWER_TITLES, INCORRECT_ANSWER_TITLES } from "../Constants";
 import {
   mockDifficulties,
   mockFormattedQuestion,
   mockQuestionBank,
+  mockQuestionIconOptions,
   mockQuestionNumberOptions,
   mockQuestionTimeOptions,
 } from "./Mocks";
 import {
   getAnswerDialogTitle,
+  getQuestionIcon,
   getQuestionNumber,
   getQuestionTimer,
   getRandomQuestions,
-  parseToTileOptionFormat,
+  parseToTileGroupFormat,
 } from "./Utils";
 
 describe("<Utils />", () => {
@@ -26,6 +30,16 @@ describe("<Utils />", () => {
     "should return the correct question time for each difficulty",
     ({ difficulty, time }) => {
       expect(getQuestionTimer(difficulty)).toBe(time);
+    }
+  );
+
+  test.each(mockQuestionIconOptions)(
+    "should return correct question icon for each category",
+    ({ category, expectedIcon }) => {
+      const result = getQuestionIcon(category);
+      render(result);
+      const icon = screen.getByTestId(expectedIcon);
+      expect(icon).toBeInTheDocument();
     }
   );
 
@@ -45,7 +59,7 @@ describe("<Utils />", () => {
   );
 
   test("should parse questions to tile option format", () => {
-    const tileOptions = parseToTileOptionFormat(mockFormattedQuestion);
+    const tileOptions = parseToTileGroupFormat(mockFormattedQuestion);
     expect(tileOptions.length).toBe(4);
     tileOptions.forEach((option: { type: string; label: string }) => {
       expect(option.type).toBeDefined();

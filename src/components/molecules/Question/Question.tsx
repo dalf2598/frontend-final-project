@@ -22,10 +22,12 @@ const StyledChildBoxRight = styled(Box)({
 });
 
 const Question = ({ category, question, icon }: QuestionProps) => {
+  const labelCategory = category.charAt(0).toUpperCase() + category.slice(1);
+
   return (
     <>
       <Typography variant="h4" fontWeight="bold" align="left">
-        Category: {category}
+        Category: {labelCategory}
       </Typography>
       <StyledBox>
         <StyledChildBoxLeft>

@@ -1,3 +1,7 @@
+import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import ExploreIcon from "@mui/icons-material/Explore";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import ScienceIcon from "@mui/icons-material/Science";
 import {
   CATEGORIES,
   CORRECT_ANSWER_TITLES,
@@ -44,6 +48,21 @@ export const getQuestionTimer = (difficulty: string) => {
   }
 };
 
+export const getQuestionIcon = (category: string) => {
+  switch (category) {
+    case availableCategories[0]: // history
+      return <AutoStoriesIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[1]: // geography
+      return <ExploreIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[2]: // music
+      return <MusicNoteIcon sx={{ fontSize: "4rem" }} />;
+    case availableCategories[3]: // science
+      return <ScienceIcon sx={{ fontSize: "4rem" }} />;
+    default:
+      return <AutoStoriesIcon sx={{ fontSize: "4rem" }} />;
+  }
+};
+
 export const getRandomQuestions = (
   questionBank: QuestionBankType,
   questionNumber: number,
@@ -85,7 +104,7 @@ export const getRandomQuestions = (
   return selectedQuestions;
 };
 
-export const parseToTileOptionFormat = (question: FormattedQuestionsType) => {
+export const parseToTileGroupFormat = (question: FormattedQuestionsType) => {
   return question.options.map((option) => {
     return {
       type: question.category,
