@@ -4,6 +4,9 @@ import { CORRECT_ANSWER_TITLES, INCORRECT_ANSWER_TITLES } from "../Constants";
 import {
   mockDifficulties,
   mockFormattedQuestion,
+  mockGetDifficultyFactorOptions,
+  mockGetPlayerLevelOptions,
+  mockGetQuestionScoreOptions,
   mockQuestionBank,
   mockQuestionIconOptions,
   mockQuestionNumberOptions,
@@ -11,8 +14,11 @@ import {
 } from "./Mocks";
 import {
   getAnswerDialogTitle,
+  getDifficultyFactor,
+  getPlayerLevel,
   getQuestionIcon,
   getQuestionNumber,
+  getQuestionScore,
   getQuestionTimer,
   getRandomQuestions,
   parseToTileGroupFormat,
@@ -55,6 +61,30 @@ describe("<Utils />", () => {
         expect(question.options).toBeDefined();
         expect(question.options.length).toBe(4);
       });
+    }
+  );
+
+  test.each(mockGetPlayerLevelOptions)(
+    "should return correct player level",
+    ({ score, level }) => {
+      const result = getPlayerLevel(score);
+      expect(result).toBe(level);
+    }
+  );
+
+  test.each(mockGetDifficultyFactorOptions)(
+    "should return correct difficulty factor",
+    ({ difficulty, factor }) => {
+      const result = getDifficultyFactor(difficulty);
+      expect(result).toBe(factor);
+    }
+  );
+
+  test.each(mockGetQuestionScoreOptions)(
+    "should return correct player score",
+    ({ correctness, time, difficulty, score }) => {
+      const result = getQuestionScore(correctness, time, difficulty);
+      expect(result).toBe(score);
     }
   );
 

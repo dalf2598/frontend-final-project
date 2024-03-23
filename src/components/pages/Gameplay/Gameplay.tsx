@@ -1,6 +1,9 @@
-import { useState } from "react";
 import { Typography, LinearProgress } from "@mui/material";
-import { getQuestionIcon, parseToTileGroupFormat } from "../../../utils/Utils";
+import {
+  getPlayerLevel,
+  getQuestionIcon,
+  parseToTileGroupFormat,
+} from "../../../utils/Utils";
 import Scaffold from "../../templates/Scaffold/Scaffold";
 import Question from "../../molecules/Question/Question";
 import Metrics from "../../molecules/Metrics/Metrics";
@@ -12,22 +15,17 @@ import useGamePlay from "../../../hooks/useGameplay";
 const Gameplay = () => {
   const {
     index,
-    currentQuestion,
-    handleTransition,
     progress,
     timer,
-    isGameOver,
+    isOptionCorrect,
     isOptionSelected,
+    currentQuestion,
+    currentQuestionScore,
+    handleTileClick,
+    isGameOver,
+    totalScore,
+    totalTime,
   } = useGamePlay();
-
-  const [isOptionCorrect, setIsOptionCorrect] = useState(false);
-
-  const handleTileClick = (option: number) => {
-    setIsOptionCorrect(
-      currentQuestion.options[option] === currentQuestion.answer
-    );
-    handleTransition();
-  };
 
   return (
     <Scaffold>
@@ -40,18 +38,23 @@ const Gameplay = () => {
         question={currentQuestion.query}
         icon={getQuestionIcon(currentQuestion.category)}
       />
-      <Metrics score={20} time={timer} />
+      <Metrics score={totalScore} time={timer} />
       <TileGroup
         options={parseToTileGroupFormat(currentQuestion)}
         onClick={handleTileClick}
       />
       <AnswerDialog
         isOpen={isOptionSelected}
-        score={20}
+        score={currentQuestionScore}
         isCorrect={isOptionCorrect}
         answer={currentQuestion.answer}
       />
-      <ResultDialog isOpen={isGameOver} score={200} time={84} level="Master" />
+      <ResultDialog
+        isOpen={isGameOver}
+        score={totalScore}
+        time={totalTime.toFixed(2)}
+        level={getPlayerLevel(totalScore)}
+      />
     </Scaffold>
   );
 };
