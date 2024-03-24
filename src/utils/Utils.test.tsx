@@ -131,9 +131,7 @@ describe("<Utils />", () => {
       ...mockLeaderboard,
       { rank: 3, player: "New Player", score: 410, level: "Intermediate" },
     ];
-    console.log("newLeaderboard", newLeaderboard);
     const result = addRowLeaderboard(currentLeaderboard, newRow);
-    console.log("result", result);
     expect(result).toEqual(newLeaderboard);
   });
 });
