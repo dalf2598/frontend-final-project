@@ -185,3 +185,14 @@ export const addRowLeaderboard = (
 
   return leaderboard;
 };
+
+export const filterLeaderboardRows = (
+  array: LeaderboardRow[],
+  query: string
+) => {
+  if (query.trim() === "") {
+    return array;
+  }
+
+  return array.filter((row) => row.player.toLowerCase().includes(query));
+};

@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { initLeaderboardRows } from "../backups/Leaderboard";
-import { addRowLeaderboard } from "../utils/Utils";
+import { addRowLeaderboard, filterLeaderboardRows } from "../utils/Utils";
 import { LeaderboardRow } from "../utils/Utils.types";
 import useLocalStorage from "./useLocalStorage";
 
 const useLeaderBoard = () => {
   const { readLocalStorage, writeLocalStorage } = useLocalStorage();
+
+  const leaderboard = readLocalStorage("leaderboard");
+  const [visibleRows, setVisibleRows] = useState<LeaderboardRow[]>(leaderboard);
+  const [query, setQuery] = useState<string>("");
 
   const initLeaderboard = () => {
     const hasExecuted = readLocalStorage("hasExecuted");
@@ -14,8 +19,6 @@ const useLeaderBoard = () => {
     }
   };
 
-  const leaderboard = readLocalStorage("leaderboard");
-
   const updateLeaderboard = (newRow: LeaderboardRow) => {
     const currentLeaderboard = [...leaderboard];
 
@@ -24,7 +27,19 @@ const useLeaderBoard = () => {
     writeLocalStorage("leaderboard", newLeaderboard);
   };
 
-  return { leaderboard, updateLeaderboard, initLeaderboard };
+  const handleQueryChange = (newQuery: string) => {
+    setQuery(newQuery);
+    setVisibleRows(filterLeaderboardRows(leaderboard, newQuery.toLowerCase()));
+  };
+
+  return {
+    initLeaderboard,
+    leaderboard,
+    updateLeaderboard,
+    visibleRows,
+    query,
+    handleQueryChange,
+  };
 };
 
 export default useLeaderBoard;
