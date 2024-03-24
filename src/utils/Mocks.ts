@@ -345,5 +345,6 @@ export const mockFormattedQuestion: FormattedQuestionsType = {
 
 export const mockLeaderboard: LeaderboardRow[] = [
     { rank: 1, player: "Test Player 1", score: 450, level: "Sage" },
-    { rank: 2, player: "Test Player 2", score: 420, level: "Sage" },
+    { rank: 2, player: "Test Player 2", score: 440, level: "Sage" },
+    { rank: 3, player: "Test Player 3", score: 420, level: "Sage" },
 ]

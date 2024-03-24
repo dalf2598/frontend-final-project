@@ -15,6 +15,7 @@ import {
 } from "./Mocks";
 import {
   addRowLeaderboard,
+  filterLeaderboardRows,
   getAnswerDialogTitle,
   getDifficultyFactor,
   getPlayerLevel,
@@ -133,5 +134,18 @@ describe("<Utils />", () => {
     ];
     const result = addRowLeaderboard(currentLeaderboard, newRow);
     expect(result).toEqual(newLeaderboard);
+  });
+
+  test("should filter rows for the leaderboard", () => {
+    const currentLeaderboard = [...mockLeaderboard];
+    const query = "Test Player 1";
+    const filterLeaderboard = [
+      { rank: 1, player: "Test Player 1", score: 450, level: "Sage" },
+    ];
+    const result = filterLeaderboardRows(
+      currentLeaderboard,
+      query.toLowerCase()
+    );
+    expect(result).toEqual(filterLeaderboard);
   });
 });
