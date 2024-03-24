@@ -3,6 +3,11 @@ import { render, screen } from "@testing-library/react";
 import { DialogProps } from "./Dialog.types";
 import Dialog from "./Dialog";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<Dialog />", () => {
   const setup = ({ title, body, open, showOptions }: DialogProps) => {
     return render(

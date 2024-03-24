@@ -4,6 +4,11 @@ import { RESULTS_DIALOG_TITLE } from "../../../Constants";
 import { ResultsDialogProps } from "./ResultsDialog.types";
 import ResultDialog from "./ResultsDialog";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<ResultsDialog />", () => {
   const setup = ({ isOpen, score, time, level }: ResultsDialogProps) => {
     return render(

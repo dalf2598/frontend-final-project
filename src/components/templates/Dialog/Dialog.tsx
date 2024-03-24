@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import { styled, Theme } from "@mui/system";
 import { Home, Leaderboard } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 import { DialogProps } from "./Dialog.types";
 import Button from "../../atoms/Button/Button";
 
@@ -38,6 +39,7 @@ const StyledDialog = styled(MuiDialog)<{ theme: Theme }>((props) => ({
 
 const Dialog = ({ title, body, open, showOptions }: DialogProps) => {
   const theme = useTheme();
+  const navigate = useNavigate();
 
   return (
     <StyledDialog open={open} theme={theme}>
@@ -45,8 +47,12 @@ const Dialog = ({ title, body, open, showOptions }: DialogProps) => {
       <DialogContent>{body}</DialogContent>
       {showOptions && (
         <DialogActions>
-          <Button icon={<Home />} onClick={() => {}} text="Home" />
-          <Button icon={<Leaderboard />} onClick={() => {}} text="Ranking" />
+          <Button icon={<Home />} onClick={() => navigate("/")} text="Home" />
+          <Button
+            icon={<Leaderboard />}
+            onClick={() => navigate("/leaderboard")}
+            text="Ranking"
+          />
         </DialogActions>
       )}
     </StyledDialog>
