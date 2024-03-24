@@ -3,12 +3,19 @@ import { ResultsDialogProps } from "./ResultsDialog.types";
 import { Box, Divider, Typography } from "@mui/material";
 import Dialog from "../../templates/Dialog/Dialog";
 
-const ResultDialog = ({ isOpen, score, time, level }: ResultsDialogProps) => {
+const ResultDialog = ({
+  isOpen,
+  playerName,
+  score,
+  time,
+  level,
+}: ResultsDialogProps) => {
   return (
     <Dialog
       title={RESULTS_DIALOG_TITLE}
       body={
         <Box>
+          <Typography variant="h6">Name: {playerName}</Typography>
           <Typography variant="h6">Score: {score}</Typography>
           <Typography variant="h6">Time: {time}s</Typography>
           <Divider

@@ -10,15 +10,28 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("<ResultsDialog />", () => {
-  const setup = ({ isOpen, score, time, level }: ResultsDialogProps) => {
+  const setup = ({
+    isOpen,
+    playerName,
+    score,
+    time,
+    level,
+  }: ResultsDialogProps) => {
     return render(
-      <ResultDialog isOpen={isOpen} score={score} time={time} level={level} />
+      <ResultDialog
+        isOpen={isOpen}
+        playerName={playerName}
+        score={score}
+        time={time}
+        level={level}
+      />
     );
   };
 
   test("should render components", () => {
     const props: ResultsDialogProps = {
       isOpen: true,
+      playerName: "John Doe",
       score: 100,
       time: "10",
       level: "Test Level",
