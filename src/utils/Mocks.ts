@@ -1,4 +1,4 @@
-import { FormattedQuestionsType, QuestionBankType } from "./Utils.types";
+import { FormattedQuestionsType, LeaderboardRow, QuestionBankType } from "./Utils.types";
 
 export const mockQuestionBank: QuestionBankType = {
     history: {
@@ -342,3 +342,8 @@ export const mockFormattedQuestion: FormattedQuestionsType = {
     options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
     answer: 'Option 1',
 };
+
+export const mockLeaderboard: LeaderboardRow[] = [
+    { rank: 1, player: "Test Player 1", score: 450, level: "Sage" },
+    { rank: 2, player: "Test Player 2", score: 420, level: "Sage" },
+]

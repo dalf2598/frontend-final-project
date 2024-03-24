@@ -3,6 +3,11 @@ import { render, screen } from "@testing-library/react";
 import { AnswerDialogProps } from "./AnswerDialog.types";
 import AnswerDialog from "./AnswerDialog";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<AnswerDialog />", () => {
   const setup = ({ isOpen, isCorrect, answer, score }: AnswerDialogProps) => {
     return render(

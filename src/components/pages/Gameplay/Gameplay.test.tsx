@@ -4,6 +4,11 @@ import { GameContextProps } from "../../../contexts/GameContext/GameContext.type
 import { GameContext } from "../../../contexts/GameContext/GameContext";
 import Gameplay from "./Gameplay";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<Gameplay />", () => {
   const mockGameContextProps: GameContextProps = {
     playerName: "",

@@ -4,6 +4,11 @@ import { LoadingDialogProps } from "./LoadingDialog.types";
 import LoadingDialog from "./LoadingDialog";
 import { LOADING_DIALOG_TITLE } from "../../../Constants";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<LoadingDialog />", () => {
   const setup = ({ isOpen }: LoadingDialogProps) => {
     return render(<LoadingDialog isOpen={isOpen} />);

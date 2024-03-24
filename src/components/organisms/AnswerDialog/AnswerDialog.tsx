@@ -39,7 +39,6 @@ const AnswerDialog = ({
         </StyledBox>
       }
       open={isOpen}
-      showOptions={false}
     />
   );
 };

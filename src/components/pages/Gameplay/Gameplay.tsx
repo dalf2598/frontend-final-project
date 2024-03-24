@@ -1,4 +1,5 @@
 import { Typography, LinearProgress } from "@mui/material";
+import { useGame } from "../../../contexts/GameContext/GameContext";
 import {
   getPlayerLevel,
   getQuestionIcon,
@@ -13,6 +14,8 @@ import ResultDialog from "../../organisms/ResultsDialog/ResultsDialog";
 import useGamePlay from "../../../hooks/useGameplay";
 
 const Gameplay = () => {
+  const { playerName } = useGame();
+
   const {
     index,
     progress,
@@ -51,6 +54,7 @@ const Gameplay = () => {
       />
       <ResultDialog
         isOpen={isGameOver}
+        playerName={playerName}
         score={totalScore}
         time={totalTime.toFixed(2)}
         level={getPlayerLevel(totalScore)}

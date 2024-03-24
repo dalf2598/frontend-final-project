@@ -4,16 +4,34 @@ import { RESULTS_DIALOG_TITLE } from "../../../Constants";
 import { ResultsDialogProps } from "./ResultsDialog.types";
 import ResultDialog from "./ResultsDialog";
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
 describe("<ResultsDialog />", () => {
-  const setup = ({ isOpen, score, time, level }: ResultsDialogProps) => {
+  const setup = ({
+    isOpen,
+    playerName,
+    score,
+    time,
+    level,
+  }: ResultsDialogProps) => {
     return render(
-      <ResultDialog isOpen={isOpen} score={score} time={time} level={level} />
+      <ResultDialog
+        isOpen={isOpen}
+        playerName={playerName}
+        score={score}
+        time={time}
+        level={level}
+      />
     );
   };
 
   test("should render components", () => {
     const props: ResultsDialogProps = {
       isOpen: true,
+      playerName: "John Doe",
       score: 100,
       time: "10",
       level: "Test Level",

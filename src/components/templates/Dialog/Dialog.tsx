@@ -6,9 +6,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { styled, Theme } from "@mui/system";
-import { Home, Leaderboard } from "@mui/icons-material";
 import { DialogProps } from "./Dialog.types";
-import Button from "../../atoms/Button/Button";
 
 const StyledDialog = styled(MuiDialog)<{ theme: Theme }>((props) => ({
   "& .MuiDialog-paper": {
@@ -36,19 +34,14 @@ const StyledDialog = styled(MuiDialog)<{ theme: Theme }>((props) => ({
   },
 }));
 
-const Dialog = ({ title, body, open, showOptions }: DialogProps) => {
+const Dialog = ({ title, body, open, options }: DialogProps) => {
   const theme = useTheme();
 
   return (
     <StyledDialog open={open} theme={theme}>
       <DialogTitle>{title}</DialogTitle>
       <DialogContent>{body}</DialogContent>
-      {showOptions && (
-        <DialogActions>
-          <Button icon={<Home />} onClick={() => {}} text="Home" />
-          <Button icon={<Leaderboard />} onClick={() => {}} text="Ranking" />
-        </DialogActions>
-      )}
+      {options && <DialogActions>{options}</DialogActions>}
     </StyledDialog>
   );
 };

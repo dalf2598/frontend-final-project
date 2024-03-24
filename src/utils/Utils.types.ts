@@ -24,3 +24,10 @@ export type QuestionBankType = {
     science: CategoryType;
     geography: CategoryType;
 };
+
+export type LeaderboardRow = {
+    rank: number;
+    player: string;
+    score: number;
+    level: string;
+};
