@@ -13,7 +13,6 @@ const LoadingDialog = ({ isOpen }: LoadingDialogProps) => {
         </Box>
       }
       open={isOpen}
-      showOptions={false}
     />
   );
 };
