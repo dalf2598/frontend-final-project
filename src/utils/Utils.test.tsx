@@ -7,12 +7,14 @@ import {
   mockGetDifficultyFactorOptions,
   mockGetPlayerLevelOptions,
   mockGetQuestionScoreOptions,
+  mockLeaderboard,
   mockQuestionBank,
   mockQuestionIconOptions,
   mockQuestionNumberOptions,
   mockQuestionTimeOptions,
 } from "./Mocks";
 import {
+  addRowLeaderboard,
   getAnswerDialogTitle,
   getDifficultyFactor,
   getPlayerLevel,
@@ -115,5 +117,21 @@ describe("<Utils />", () => {
     expect(result).toEqual(
       INCORRECT_ANSWER_TITLES[Math.floor(0.5 * INCORRECT_ANSWER_TITLES.length)]
     );
+  });
+
+  test("should add row to the leaderboard", () => {
+    const currentLeaderboard = [...mockLeaderboard];
+    const newRow = {
+      rank: 0,
+      player: "New Player",
+      score: 410,
+      level: "Intermediate",
+    };
+    const newLeaderboard = [
+      ...mockLeaderboard,
+      { rank: 3, player: "New Player", score: 410, level: "Intermediate" },
+    ];
+    const result = addRowLeaderboard(currentLeaderboard, newRow);
+    expect(result).toEqual(newLeaderboard);
   });
 });

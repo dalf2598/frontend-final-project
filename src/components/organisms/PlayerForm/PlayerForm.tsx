@@ -17,6 +17,7 @@ import {
 } from "../../../utils/Utils";
 import { useNavigate } from "react-router-dom";
 import { useGame } from "../../../contexts/GameContext/GameContext";
+import useLeaderBoard from "../../../hooks/useLeaderBoard";
 
 const PlayerForm = () => {
   const {
@@ -25,6 +26,7 @@ const PlayerForm = () => {
     setQuestionTimer,
   } = useGame();
 
+  const { initLeaderboard } = useLeaderBoard();
   const navigate = useNavigate();
 
   const [difficulty, setDifficulty] = useState<string>(DIFFICULTIES[1].value);
@@ -45,6 +47,7 @@ const PlayerForm = () => {
     setQuestions(questions);
     setQuestionTimer(getQuestionTimer(difficulty));
     setIsDialogOpen(true);
+    initLeaderboard();
     setTimeout(() => {
       navigate("/gameplay");
     }, 1500);

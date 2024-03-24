@@ -1,7 +1,11 @@
+import { Box, Divider, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { RESULTS_DIALOG_TITLE, RESULTS_LEVEL } from "../../../Constants";
 import { ResultsDialogProps } from "./ResultsDialog.types";
-import { Box, Divider, Typography } from "@mui/material";
 import Dialog from "../../templates/Dialog/Dialog";
+import Button from "../../atoms/Button/Button";
+import { Home, Leaderboard } from "@mui/icons-material";
+import useLeaderBoard from "../../../hooks/useLeaderBoard";
 
 const ResultDialog = ({
   isOpen,
@@ -10,6 +14,22 @@ const ResultDialog = ({
   time,
   level,
 }: ResultsDialogProps) => {
+  const { updateLeaderboard } = useLeaderBoard();
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => navigate("/");
+
+  const handleLeaderboardClick = () => {
+    updateLeaderboard({
+      rank: 0,
+      player: playerName,
+      score: score,
+      level: level,
+    });
+
+    navigate("/leaderboard");
+  };
+
   return (
     <Dialog
       title={RESULTS_DIALOG_TITLE}
@@ -35,7 +55,16 @@ const ResultDialog = ({
         </Box>
       }
       open={isOpen}
-      showOptions={true}
+      options={
+        <Box sx={{ display: "flex", gap: "10px" }}>
+          <Button icon={<Home />} onClick={handleHomeClick} text="Home" />
+          <Button
+            icon={<Leaderboard />}
+            onClick={handleLeaderboardClick}
+            text="Ranking"
+          />
+        </Box>
+      }
     />
   );
 };

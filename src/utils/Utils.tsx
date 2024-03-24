@@ -12,6 +12,7 @@ import {
   FormattedQuestionsType,
   QuestionBankType,
   CategoryType,
+  LeaderboardRow,
 } from "./Utils.types";
 
 const availableCategories: string[] = CATEGORIES.map(
@@ -164,4 +165,23 @@ export const getAnswerDialogTitle = (isCorrect: boolean) => {
   return isCorrect
     ? correctTitles[Math.floor(Math.random() * correctTitles.length)]
     : incorrectTitles[Math.floor(Math.random() * incorrectTitles.length)];
+};
+
+export const addRowLeaderboard = (
+  leaderboard: LeaderboardRow[],
+  newRow: LeaderboardRow
+) => {
+  leaderboard.push(newRow);
+
+  leaderboard.sort((a, b) => b.score - a.score || a.rank - b.rank);
+
+  if (leaderboard.length > 10) {
+    leaderboard.splice(10);
+  }
+
+  leaderboard.forEach((item, index) => {
+    item.rank = index + 1;
+  });
+
+  return leaderboard;
 };
