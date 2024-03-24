@@ -22,6 +22,9 @@ mockUseLeaderBoard.mockReturnValue({
   leaderboard: mockUseLeaderBoardRows,
   updateLeaderboard: jest.fn(),
   initLeaderboard: jest.fn(),
+  visibleRows: mockUseLeaderBoardRows,
+  query: "",
+  handleQueryChange: jest.fn(),
 });
 
 describe("<Leaderboard />", () => {
