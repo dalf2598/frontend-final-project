@@ -120,16 +120,20 @@ describe("<Utils />", () => {
   });
 
   test("should add row to the leaderboard", () => {
+    const currentLeaderboard = [...mockLeaderboard];
     const newRow = {
       rank: 0,
       player: "New Player",
-      score: 420,
+      score: 410,
       level: "Intermediate",
     };
-    const expectedOutput = [
+    const newLeaderboard = [
       ...mockLeaderboard,
-      { rank: 3, player: "New Player", score: 420, level: "Intermediate" },
+      { rank: 3, player: "New Player", score: 410, level: "Intermediate" },
     ];
-    expect(addRowLeaderboard(mockLeaderboard, newRow)).toEqual(expectedOutput);
+    console.log("newLeaderboard", newLeaderboard);
+    const result = addRowLeaderboard(currentLeaderboard, newRow);
+    console.log("result", result);
+    expect(result).toEqual(newLeaderboard);
   });
 });
