@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ThemeProvider from "./contexts/ThemeContext/ThemeContext";
 import { GameProvider } from "./contexts/GameContext/GameContext";
 import Background from "./components/organisms/Background/Background";
@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<StartMenu />} />
           <Route path="/gameplay" element={<Gameplay />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </GameProvider>
     </ThemeProvider>

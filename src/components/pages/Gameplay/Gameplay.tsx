@@ -14,7 +14,7 @@ import ResultDialog from "../../organisms/ResultsDialog/ResultsDialog";
 import useGamePlay from "../../../hooks/useGameplay";
 
 const Gameplay = () => {
-  const { playerName } = useGame();
+  const { questions, playerName } = useGame();
 
   const {
     index,
@@ -29,6 +29,10 @@ const Gameplay = () => {
     totalScore,
     totalTime,
   } = useGamePlay();
+
+  if (questions.length === 0) {
+    return;
+  }
 
   return (
     <Scaffold>

@@ -1,6 +1,6 @@
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import ExploreIcon from "@mui/icons-material/Explore";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import ScienceIcon from "@mui/icons-material/Science";
 import {
   CATEGORIES,
@@ -56,7 +56,7 @@ export const getQuestionIcon = (category: string) => {
     case availableCategories[1]: // geography
       return <ExploreIcon sx={{ fontSize: "4rem" }} />;
     case availableCategories[2]: // music
-      return <MusicNoteIcon sx={{ fontSize: "4rem" }} />;
+      return <LibraryMusicIcon sx={{ fontSize: "4rem" }} />;
     case availableCategories[3]: // science
       return <ScienceIcon sx={{ fontSize: "4rem" }} />;
     default:
@@ -171,19 +171,23 @@ export const addRowLeaderboard = (
   leaderboard: LeaderboardRow[],
   newRow: LeaderboardRow
 ) => {
-  leaderboard.push(newRow);
+  const filterLeaderboard = leaderboard.filter(
+    (row) => row.player !== newRow.player
+  );
 
-  leaderboard.sort((a, b) => b.score - a.score || a.rank - b.rank);
+  filterLeaderboard.push(newRow);
 
-  if (leaderboard.length > 10) {
-    leaderboard.splice(10);
+  filterLeaderboard.sort((a, b) => b.score - a.score || a.rank - b.rank);
+
+  if (filterLeaderboard.length > 10) {
+    filterLeaderboard.splice(10);
   }
 
-  leaderboard.forEach((item, index) => {
+  filterLeaderboard.forEach((item, index) => {
     item.rank = index + 1;
   });
 
-  return leaderboard;
+  return filterLeaderboard;
 };
 
 export const filterLeaderboardRows = (
@@ -195,4 +199,15 @@ export const filterLeaderboardRows = (
   }
 
   return array.filter((row) => row.player.toLowerCase().includes(query));
+};
+
+export const isOfQuestionBankType = (data: unknown): boolean => {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "history" in data &&
+    "geography" in data &&
+    "music" in data &&
+    "science" in data
+  );
 };

@@ -3,7 +3,7 @@ import { FormattedQuestionsType } from "../../utils/Utils.types";
 
 type GameContextProps = {
     playerName: string;
-    setPlayerName: (value: string) => void;
+    setPlayerName: (playerName: string) => void;
     questions: FormattedQuestionsType[];
     setQuestions: (questions: FormattedQuestionsType[]) => void;
     questionTimer: number;

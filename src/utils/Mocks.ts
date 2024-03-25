@@ -310,7 +310,7 @@ export const mockDifficulties = ["easy", "medium", "hard"];
 export const mockQuestionIconOptions = [
     { category: "history", expectedIcon: "AutoStoriesIcon" },
     { category: "geography", expectedIcon: "ExploreIcon" },
-    { category: "music", expectedIcon: "MusicNoteIcon" },
+    { category: "music", expectedIcon: "LibraryMusicIcon" },
     { category: "science", expectedIcon: "ScienceIcon" },
 ];
 
@@ -333,6 +333,14 @@ export const mockGetQuestionScoreOptions = [
     { correctness: true, time: 50, difficulty: "medium", score: 38 },
     { correctness: true, time: 50, difficulty: "hard", score: 50 },
     { correctness: false, time: 50, difficulty: "hard", score: 0 },
+];
+
+export const mockIsOfQuestionBankTypeOptions = [
+    { data: mockQuestionBank, response: true },
+    { data: { values: 'test values' }, response: false },
+    { data: 0, response: false },
+    { data: '<p>Test<p/>', response: false },
+    { data: null, response: false },
 ];
 
 export const mockFormattedQuestion: FormattedQuestionsType = {
