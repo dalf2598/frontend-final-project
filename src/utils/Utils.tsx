@@ -171,19 +171,23 @@ export const addRowLeaderboard = (
   leaderboard: LeaderboardRow[],
   newRow: LeaderboardRow
 ) => {
-  leaderboard.push(newRow);
+  const filterLeaderboard = leaderboard.filter(
+    (row) => row.player !== newRow.player
+  );
 
-  leaderboard.sort((a, b) => b.score - a.score || a.rank - b.rank);
+  filterLeaderboard.push(newRow);
 
-  if (leaderboard.length > 10) {
-    leaderboard.splice(10);
+  filterLeaderboard.sort((a, b) => b.score - a.score || a.rank - b.rank);
+
+  if (filterLeaderboard.length > 10) {
+    filterLeaderboard.splice(10);
   }
 
-  leaderboard.forEach((item, index) => {
+  filterLeaderboard.forEach((item, index) => {
     item.rank = index + 1;
   });
 
-  return leaderboard;
+  return filterLeaderboard;
 };
 
 export const filterLeaderboardRows = (

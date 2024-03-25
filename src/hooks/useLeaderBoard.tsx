@@ -8,7 +8,9 @@ const useLeaderBoard = () => {
   const { readLocalStorage, writeLocalStorage } = useLocalStorage();
 
   const leaderboard = readLocalStorage("leaderboard");
-  const [visibleRows, setVisibleRows] = useState<LeaderboardRow[]>(leaderboard);
+  const [visibleRows, setVisibleRows] = useState<LeaderboardRow[]>(
+    leaderboard ? leaderboard : []
+  );
   const [query, setQuery] = useState<string>("");
 
   const initLeaderboard = () => {
@@ -29,7 +31,11 @@ const useLeaderBoard = () => {
 
   const handleQueryChange = (newQuery: string) => {
     setQuery(newQuery);
-    setVisibleRows(filterLeaderboardRows(leaderboard, newQuery.toLowerCase()));
+    setVisibleRows(
+      leaderboard
+        ? filterLeaderboardRows(leaderboard, newQuery.toLowerCase())
+        : []
+    );
   };
 
   return {
