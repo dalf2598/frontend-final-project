@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { initLeaderboardRows } from "../backups/Leaderboard";
+import { INITIAL_LEADERBOARD_ROWS } from "../Constants";
 import { addRowLeaderboard, filterLeaderboardRows } from "../utils/Utils";
 import { LeaderboardRow } from "../utils/Utils.types";
 import useLocalStorage from "./useLocalStorage";
@@ -14,7 +14,7 @@ const useLeaderBoard = () => {
   const initLeaderboard = () => {
     const hasExecuted = readLocalStorage("hasExecuted");
     if (!hasExecuted) {
-      writeLocalStorage("leaderboard", initLeaderboardRows);
+      writeLocalStorage("leaderboard", INITIAL_LEADERBOARD_ROWS);
       writeLocalStorage("hasExecuted", true);
     }
   };

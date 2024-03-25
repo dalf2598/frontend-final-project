@@ -1,6 +1,6 @@
 import { QuestionBankType } from "../utils/Utils.types";
 
-export const QuestionBank: QuestionBankType = {
+export const BackupQuestionBank: QuestionBankType = {
     "history": {
         "easy": [
             {
