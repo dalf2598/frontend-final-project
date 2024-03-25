@@ -8,6 +8,12 @@ jest.mock("react-router-dom", () => ({
   useNavigate: jest.fn(),
 }));
 
+jest.mock("../../../utils/Urls", () => ({
+  get API_URL() {
+    return "localhost:3000/api/questions";
+  },
+}));
+
 describe("<RadioGroup />", () => {
   const setup = () => {
     return render(<PlayerForm />);

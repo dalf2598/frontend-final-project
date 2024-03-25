@@ -1,6 +1,6 @@
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import ExploreIcon from "@mui/icons-material/Explore";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import ScienceIcon from "@mui/icons-material/Science";
 import {
   CATEGORIES,
@@ -56,7 +56,7 @@ export const getQuestionIcon = (category: string) => {
     case availableCategories[1]: // geography
       return <ExploreIcon sx={{ fontSize: "4rem" }} />;
     case availableCategories[2]: // music
-      return <MusicNoteIcon sx={{ fontSize: "4rem" }} />;
+      return <LibraryMusicIcon sx={{ fontSize: "4rem" }} />;
     case availableCategories[3]: // science
       return <ScienceIcon sx={{ fontSize: "4rem" }} />;
     default:

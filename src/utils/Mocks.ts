@@ -310,7 +310,7 @@ export const mockDifficulties = ["easy", "medium", "hard"];
 export const mockQuestionIconOptions = [
     { category: "history", expectedIcon: "AutoStoriesIcon" },
     { category: "geography", expectedIcon: "ExploreIcon" },
-    { category: "music", expectedIcon: "MusicNoteIcon" },
+    { category: "music", expectedIcon: "LibraryMusicIcon" },
     { category: "science", expectedIcon: "ScienceIcon" },
 ];
 
