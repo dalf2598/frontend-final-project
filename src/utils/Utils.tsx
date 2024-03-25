@@ -200,3 +200,14 @@ export const filterLeaderboardRows = (
 
   return array.filter((row) => row.player.toLowerCase().includes(query));
 };
+
+export const isOfQuestionBankType = (data: unknown): boolean => {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "history" in data &&
+    "geography" in data &&
+    "music" in data &&
+    "science" in data
+  );
+};

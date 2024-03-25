@@ -7,6 +7,7 @@ import {
   mockGetDifficultyFactorOptions,
   mockGetPlayerLevelOptions,
   mockGetQuestionScoreOptions,
+  mockIsOfQuestionBankTypeOptions,
   mockLeaderboard,
   mockQuestionBank,
   mockQuestionIconOptions,
@@ -24,6 +25,7 @@ import {
   getQuestionScore,
   getQuestionTimer,
   getRandomQuestions,
+  isOfQuestionBankType,
   parseToTileGroupFormat,
 } from "./Utils";
 
@@ -153,4 +155,12 @@ describe("<Utils />", () => {
     );
     expect(result).toEqual(filterLeaderboard);
   });
+
+  test.each(mockIsOfQuestionBankTypeOptions)(
+    "should determine if data is of QuestionBankType",
+    ({ data, response }) => {
+      const result = isOfQuestionBankType(data);
+      expect(result).toBe(response);
+    }
+  );
 });

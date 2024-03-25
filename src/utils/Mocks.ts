@@ -335,6 +335,14 @@ export const mockGetQuestionScoreOptions = [
     { correctness: false, time: 50, difficulty: "hard", score: 0 },
 ];
 
+export const mockIsOfQuestionBankTypeOptions = [
+    { data: mockQuestionBank, response: true },
+    { data: { values: 'test values' }, response: false },
+    { data: 0, response: false },
+    { data: '<p>Test<p/>', response: false },
+    { data: null, response: false },
+];
+
 export const mockFormattedQuestion: FormattedQuestionsType = {
     category: 'test category',
     difficulty: 'test difficulty',

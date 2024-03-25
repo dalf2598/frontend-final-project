@@ -32,6 +32,7 @@ const usePlayerForm = () => {
   };
 
   const handlePlayButtonClick = async () => {
+    setIsDialogOpen(true);
     const questionBank = await fetchQuestionBank();
     const questions = getRandomQuestions(
       questionBank,
@@ -41,7 +42,6 @@ const usePlayerForm = () => {
     setContextName(playerName.length === 0 ? "Blank" : playerName);
     setQuestions(questions);
     setQuestionTimer(getQuestionTimer(difficulty));
-    setIsDialogOpen(true);
     initLeaderboard();
     setTimeout(() => {
       navigate("/gameplay");
