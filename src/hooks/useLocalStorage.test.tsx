@@ -7,7 +7,7 @@ describe("useLocalStorage", () => {
     Storage.prototype.getItem = jest.fn();
   });
 
-  it("writes to localStorage correctly", () => {
+  it("should write to localStorage correctly", () => {
     const { result } = renderHook(() => useLocalStorage());
     const key = "testKey";
     const value = { test: "data" };
@@ -20,14 +20,14 @@ describe("useLocalStorage", () => {
     );
   });
 
-  it("reads from localStorage correctly", () => {
+  it("should read from localStorage correctly", () => {
     const { result } = renderHook(() => useLocalStorage());
     const key = "testKey";
     result.current.readLocalStorage(key);
     expect(localStorage.getItem).toHaveBeenCalledWith(key);
   });
 
-  it("returns null when reading from non-existent key", () => {
+  it("should returns null when reading from non-existent key", () => {
     const { result } = renderHook(() => useLocalStorage());
     const key = "nonExistentKey";
 
