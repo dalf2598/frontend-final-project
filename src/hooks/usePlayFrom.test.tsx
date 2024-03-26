@@ -33,7 +33,7 @@ describe("usePlayFrom", () => {
     expect(result.current.difficulty).toBe("easy");
   });
 
-  test("should call appropiate function when clicking", () => {
+  test("should handle button click", () => {
     const { result } = renderHook(() => usePlayerForm());
 
     const mockPlayernName = "Player 1";
