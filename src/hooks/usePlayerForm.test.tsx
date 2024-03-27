@@ -16,7 +16,7 @@ jest.mock("react-router-dom", () => ({
 
 jest.mock("./useFetchQuestions");
 
-describe("usePlayFrom", () => {
+describe("usePlayerForm", () => {
   const mockfetchQuestionBank = jest.fn().mockReturnValue(BackupQuestionBank);
   const mockFetchQuestions = jest.mocked(useFetchQuestions);
   mockFetchQuestions.mockReturnValue({
