@@ -11,7 +11,7 @@ Final project for Frontend Module of IOET University Part 2
 
 BrainQuest is a fun trivia game. The core gameplay loop is straightforward, pick a difficulty and do your best to answer all the questions correctly in as little as possible. Receive a score and see how you compare to other players on the leaderboard. <br><br>
 As simple as it might sound, I can guarantee you a lot of work was put into it.
-You can find the Figma designs [here](https://www.figma.com/file/99VqXV1NT5SepxCjlKNB41/BrainQuest?type=design&node-id=0%3A1&mode=design&t=1t7Q5IEIzx8DpFZI-1) and the Trello board I used to organize my work [here](https://trello.com/invite/b/gcd6GHHN/ATTI297222a5a79ae4c09d395318af227448E74D8191/brainquest)
+You can find the Figma designs [here](https://www.figma.com/design/99VqXV1NT5SepxCjlKNB41/BrainQuest?node-id=0-1&t=cCI88x3QiH6sqYJk-1) and the Trello board I used to organize my work [here](https://trello.com/invite/b/gcd6GHHN/ATTI297222a5a79ae4c09d395318af227448E74D8191/brainquest)
 
 ## Installation
 
